@@ -1,4 +1,5 @@
-#just try the program!
+#Ubah Program !!
+#Dari Batu, Kertas, Gunting menjadi Semut, Gaja, Orang 
 import random
 import os
 import re
@@ -7,7 +8,7 @@ def check_play_status():
     valid_responses = ['yes', 'no']
     while True:
         try:
-            response = input('Do you wish to play again? (Yes or NO): ')
+            response = input('Do you wish to play again? (Yes or No): ')
 
             if response.lower() not in valid_responses:
                 raise ValueError('Invalid response. Please enter "Yes" or "No"')
@@ -15,7 +16,6 @@ def check_play_status():
                 return True
             else:
                 os.system('cls' if os.name == 'nt' else 'clear')
-                print
                 exit()
         except ValueError as err:
             print(err)
@@ -25,18 +25,18 @@ def play_rps():
     while play:
         os.system('cls' if os.name == 'nt' else 'clear')
         print('')
-        print('Rock, Paper, Scissors - Shoot!')
+        print('Semut, Orang, Gajah!')
 
-        user_choice = input('Choose your weapon [R]ock], [P]aper, or [S]cissors: ') 
+        user_choice = input('Choose your weapon [S]emut], [O]rang, or [G]ajah: ') 
 
-        if not re.match("[SsRrPp]", user_choice):
+        if not re.match("[SsOoGg]", user_choice):
             print('Please choose a letter:')
-            print('[R]ock, [S]cissors or [P]aper')
+            print('[S]emut], [O]rang, or [G]ajah')
             continue
 
         print('You chose: ' + user_choice)
 
-        choices = ['R', 'P', 'S']
+        choices = ['S', 'O', 'G']
         opp_choice = random.choice(choices)
 
         print(f'I chose: {opp_choice}')
@@ -44,19 +44,18 @@ def play_rps():
         if opp_choice == user_choice.upper():
             print('Tie!')
             play = check_play_status()
-        elif opp_choice == 'R' and user_choice.upper() == 'S':
-            print('Rock beats scissors, I win!')
+        elif opp_choice == 'S' and user_choice.upper() == 'G':
+            print('Semut mengalahkan Gajah, saya menang!')
             play = check_play_status()
-        elif opp_choice == 'S' and user_choice.upper() == 'P':
-            print('Scissors beats paper! I win!')
+        elif opp_choice == 'G' and user_choice.upper() == 'O':
+            print('Gajah mengalahkan Orang! Saya menang!')
             play = check_play_status()
-        elif opp_choice == 'P' and user_choice.upper() == 'R':
-            print('Paper beats rock, I win!')
+        elif opp_choice == 'O' and user_choice.upper() == 'S':
+            print('Orang mengalahkan Semut, saya menang!')
             play = check_play_status()
         else:
-            print('You win!')
+            print('Kamu menang!')
             play = check_play_status()
 
 if __name__ == '__main__':
     play_rps()
-
