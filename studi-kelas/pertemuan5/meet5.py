@@ -63,13 +63,13 @@ class LinkedList:
 linked_list = LinkedList()
 linked_list.append("Saya")
 
-linked_list.insert("adalah", 1)
+linked_list.append("adalah")
 
 linked_list.insert("nama masing-masing", 2)
 
 linked_list.prepend("Nama")
 
-linked_list.change_name(2, "Munif")
+linked_list.change_name(3, "Munif")
 
 linked_list.display()
 
